@@ -40,7 +40,7 @@ public class SQLTest {
     void shouldBeErrorWithLoginOrPassword(){
         var authInfo = DataHelper.generateRandomUser();
         loginPage.validLogin(authInfo);
-        loginPage.errorNotificationVerify("Ошибка! \nНеверно указан логин или пароль");
+        loginPage.errorNotificationVerify("Ошибка! Неверно указан логин или пароль");
     }
     @Test
     void shouldBeErrorWithCode(){
