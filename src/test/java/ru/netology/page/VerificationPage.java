@@ -20,11 +20,13 @@ public class VerificationPage {
         codeField.setValue(verificationCode);
         codeButton.click();
     }
-    public DashboardPage validVerify(String verificationCode){
+
+    public DashboardPage validVerify(String verificationCode) {
         verify(verificationCode);
         return new DashboardPage();
     }
-    public void errorNotificationVerify(String expectedText){
+
+    public void errorNotificationVerify(String expectedText) {
         errorNotification.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 }

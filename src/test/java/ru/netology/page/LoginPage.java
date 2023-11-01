@@ -20,7 +20,8 @@ public class LoginPage {
         loginButton.click();
         return new VerificationPage();
     }
-    public void errorNotificationVerify(String expectedText){
+
+    public void errorNotificationVerify(String expectedText) {
         errorNotification.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 }

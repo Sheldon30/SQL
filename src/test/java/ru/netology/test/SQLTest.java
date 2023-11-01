@@ -17,19 +17,22 @@ import static ru.netology.data.SQLHelper.cleanDB;
 
 public class SQLTest {
     LoginPage loginPage;
+
     @AfterEach
     void tearDown() throws SQLException {
         cleanAuth_code();
     }
+
     @AfterAll
     static void tearDownAll() throws SQLException {
         cleanDB();
     }
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         loginPage = open("http://localhost:9999", LoginPage.class);
     }
+
     @Test
     void shouldBeEntranceSuccessful() {
         var authInfo = DataHelper.getAuthInfo();
@@ -38,14 +41,16 @@ public class SQLTest {
         var verificationCod = SQLHelper.getVerificationCode();
         verificationPage.validVerify(verificationCod.getCode());
     }
+
     @Test
-    void shouldBeErrorWithLoginOrPassword(){
+    void shouldBeErrorWithLoginOrPassword() {
         var authInfo = DataHelper.generateRandomUser();
         loginPage.validLogin(authInfo);
         loginPage.errorNotificationVerify("Ошибка! Неверно указан логин или пароль");
     }
+
     @Test
-    void shouldBeErrorWithCode(){
+    void shouldBeErrorWithCode() {
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
         verificationPage.DashboardPage();
