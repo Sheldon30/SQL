@@ -22,9 +22,10 @@ public class SQLTest {
         cleanAuth_code();
     }
     @AfterAll
-    void tearDownAll() throws SQLException {
+    static void tearDownAll() throws SQLException {
         cleanDB();
     }
+
     @BeforeEach
     void setUp(){
         loginPage = open("http://localhost:9999", LoginPage.class);
