@@ -1,5 +1,6 @@
 package ru.netology.test;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ public class SQLTest {
     void tearDown() throws SQLException {
         cleanAuth_code();
     }
-    @AfterEach
+    @AfterAll
     void tearDownAll() throws SQLException {
         cleanDB();
     }
